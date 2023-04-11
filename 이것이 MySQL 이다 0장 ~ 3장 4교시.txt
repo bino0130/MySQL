@@ -1,0 +1,44 @@
+ctrl + shift + enter : 쿼리문 실행
+(특정 범위 표시 없이 실행하면 모든 쿼리문 실행
+ 범위 표시하고 실행하면 범위에 해당하는 쿼리문 실행)
+
+SELECT * FROM productTBL;
+-> productTBL 테이블의 모든 열(Column) 출력
+
+SELECT memberAddress, memberName FROM productTBL;
+-> productTBL 테이블의 memberAddress, memberName column 출력
+
+SELECT * FROM membertbl WHERE memberName='상달이';
+-> productTBL 테이블에서 '상달이'라는 memberName의 데이터 출력
+
+CREATE TABLE myTable(id int);
+-> myTable이라는 테이블 생성. 혹시 왼쪽에 있는 schema 창이 업데이트되지
+않는다면 해당 db 우클릭 후 Refresh All 클릭
+
+
+index p.72
+
+Full Table Scan : 전체 테이블을 스캔했다
+Ex) 사전에 있는 단어 500개를 전부 뒤져서 '홍길동'을 찾았다.
+
+Lookup : 인덱스를 사용해서 찾았다
+Ex) 사전에 있는 색인 'ㅎ'을 찾아 '홍길동'을 찾았다.
+
+view p.77
+
+stored procedure p.80
+
+trigger p.82
+
+UPDATE membertbl SET memberAddress = '서울 강남구 역삼동' WHERE memberName = '연아';
+-> membertbl 테이블에 있는 '연아'의 memberAddress 열의 이름을 '서울 강남구 역삼동'으로 업데이트
+
+DELETE FROM membertbl WHERE memberName = '연아';
+-> memberName이 '연아'인 행(데이터)을 membertbl 테이블에서 삭제한다
+
+DELIMITER //
+
+BEGIN
+	코딩할 문장 입력
+END //
+DELIMIBER ;
