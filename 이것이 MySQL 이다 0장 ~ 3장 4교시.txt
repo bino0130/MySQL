@@ -9,7 +9,7 @@ SELECT memberAddress, memberName FROM productTBL;
 -> productTBL 테이블의 memberAddress, memberName column 출력
 
 SELECT * FROM membertbl WHERE memberName='상달이';
--> productTBL 테이블에서 '상달이'라는 memberName의 데이터 출력
+-> productTBL 테이블에서 '상달이'라는 memberName column의 데이터 출력
 
 CREATE TABLE myTable(id int);
 -> myTable이라는 테이블 생성. 혹시 왼쪽에 있는 schema 창이 업데이트되지
@@ -28,17 +28,27 @@ view p.77
 
 stored procedure p.80
 
-trigger p.82
-
-UPDATE membertbl SET memberAddress = '서울 강남구 역삼동' WHERE memberName = '연아';
--> membertbl 테이블에 있는 '연아'의 memberAddress 열의 이름을 '서울 강남구 역삼동'으로 업데이트
-
-DELETE FROM membertbl WHERE memberName = '연아';
--> memberName이 '연아'인 행(데이터)을 membertbl 테이블에서 삭제한다
-
-DELIMITER //
-
+DELIMITER // <- 
+CREATE PROCEDURE spname() <- stored procedure name의 약자
 BEGIN
 	코딩할 문장 입력
 END //
-DELIMIBER ;
+DELIMITER ;
+-> DELIMITER는 구분 문자를 의미함, 뒤에 // 가 나오면 기존의 세미콜론(;)을 대신한다는 뜻이다.
+CREATE PROCEDURE 부터 END까지를 하나의 단락으로 묶어주는 효과를 갖는다.
+
+호출할 때는 CALL spname(); 입력 후 ctrl + shift + enter
+
+*데이터베이스 개체를 만들 때는 CREAT, 삭제할 때는 DROP
+ex) CREATE 개체종류 개체이름, DROP 개체종류 개체이름
+
+trigger p.82
+
+UPDATE membertbl SET memberAddress = '서울 강남구 역삼동' WHERE memberName = '연아';
+-> membertbl 테이블에 memberName column에 있는 '연아'의 memberAddress 열 부분을 
+'서울 강남구 역삼동'으로 업데이트
+
+DELETE FROM membertbl WHERE memberName = '연아';
+-> memberName column에서 '연아'를 가지고 있는 행(데이터)을 membertbl 테이블에서 삭제한다
+
+
