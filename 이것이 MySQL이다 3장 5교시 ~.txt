@@ -1,1 +1,11 @@
 이것이 MySQL 이다 3장 5교시 ~
+
+백업 p.86 
+
+db 선택 후 왼쪽 하단 Administration 클릭 -> 왼쪽 상단 Data Export 클릭
+-> 화면 중앙 shopdb 체크 -> 교재 88페이지 내용대로 체크
+
+DELETE FROM producttbl : producttbl 테이블 삭제
+
+Data Import/Restore 클릭 -> Import from Self-Contained File 클릭 후 DB백업 안에 있는 ShopDB.sql 지정
+Default Target Schema-> shopdb로 지정해주고 Start Import 클릭
